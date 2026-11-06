@@ -1,0 +1,68 @@
+
+{% extends "base.html" %}
+
+{% block title %}Admin Panel | CampusConnect{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Header -->
+    <div class="mb-4">
+        <h2 class="fw-bold text-primary">
+            Admin Panel
+        </h2>
+        <p class="text-muted">
+            Welcome to the CampusConnect administration dashboard.
+        </p>
+    </div>
+
+    <!-- Admin Information -->
+    <div class="row g-4">
+
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold">Administrator</h5>
+                    <p class="text-muted mb-1">
+                        Logged in as:
+                    </p>
+                    <h5>{{ user.username }}</h5>
+                    <span class="badge bg-primary">
+                        {{ user.get_role_display }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold">Account Management</h5>
+                    <p class="text-muted">
+                        Manage your administrator account information.
+                    </p>
+                    <a href="{% url 'profile' %}"
+                       class="btn btn-primary">
+                        Edit My Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Admin Notice -->
+    <div class="alert alert-info mt-4" role="alert">
+        <strong>Administrator Access:</strong>
+        You are viewing the CampusConnect administration panel.
+    </div>
+
+    <a href="{% url 'home' %}"
+       class="btn btn-outline-secondary mt-2">
+        Back to Dashboard
+    </a>
+
+</div>
+
+{% endblock %}
